@@ -7,7 +7,7 @@
 
 This project uses [torch-rnn](https://github.com/jcjohnson/torch-rnn), a series of modules, written for the Torch framework by Justin Johnson and based on Andrej Karpathy’s [char-rnn](https://github.com/karpathy/char-rnn), that generates text using artificial neural networks ("ANNs"). ANNs are computer systems that loosely mimic the human brain. They consist of networks of neuron-like "nodes" that are grouped into layers, with nodes from one layer connected to nodes in other layers (see Fig. 1).
 
-<img src="images/1-layers.png" width="80%">
+<img src="images/1-layers.png" width="60%">
 
 *Figure 1: Illustration of a neural network with arrows showing how information travels through it. Image made by Colin M. Burnett, care of Wikimedia Commons.*
 
@@ -40,11 +40,11 @@ More specifically for this project, torch-rnn lets me imitate Grant Allen’s �
 
 Sample 1	               |  Sample 2
 :-------------------------:|:-------------------------:
-![](images/4-sample1.png)    ![](images/4-sample2.png)
+![](images/4-sample1.png)  | ![](images/4-sample2.png)
 
 Sample 3				   |    Sample 4
 :-------------------------:|:-------------------------:
-![](images/4-sample3.png)    ![](images/4-sample4.png)
+![](images/4-sample3.png)  | ![](images/4-sample4.png)
 
 *Fig 6: Pictures of samples at different points in the model and what they produce*
 
