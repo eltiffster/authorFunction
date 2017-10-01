@@ -4,8 +4,8 @@ import os
 import re
 
 #Set file paths and variables for moving later IN BASH OR TERMINAL:
-sourcePath = r"/home/Tiffany/ENGL598/samples/stripped/" #replace with file path to folder with source files
-destPath = r"/home/Tiffany/ENGL598/samples/test2/" #replace with file path to where you want
+sourcePath = r"../corpus/stripped/" #replace with file path to folder with source files
+destPath = r"/path to folder/foldername/" #replace with file path to where you want
 														# clean files to be saved
 
 #IN WINDOWS CMD:
@@ -14,12 +14,12 @@ destPath = r"/home/Tiffany/ENGL598/samples/test2/" #replace with file path to wh
 fileName = r"" #to be used later
 
 #If you only want a specific set of files in your source folder:
-listOfFiles = ['babylonVol1.txt', 'babylonVol2.txt', 'babylonVol3.txt', 'beckoningHand.txt'] #list file names (separated by commas) in the square brackets
+#listOfFiles = ['babylonVol1.txt', 'babylonVol2.txt', 'babylonVol3.txt', 'beckoningHand.txt'] #list file names (separated by commas) in the square brackets
 
-for file in listOfFiles:
+#for file in listOfFiles:
 		#OR
 #Iterate over each file in the directory
-#for file in os.listdir(sourcePath):
+for file in os.listdir(sourcePath):
 
 	fileName = file
 	#Open the stripped .txt file & read it

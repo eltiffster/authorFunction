@@ -1,6 +1,8 @@
 ## Composition
 
-### [Getting Started](#started)
+![Screenshot of torch-rnn Github page](images/torch-rnn.png)
+
+### Getting Started
 
 Running torch-rnn requires a number of dependencies that are all listed on the [torch-rnn page](https://github.com/jcjohnson/torch-rnn). You will need to install [Python](https://www.python.org/) and [Lua](https://www.lua.org/manual/5.3/readme.html) before installing [Torch](http://torch.ch/). Note that the commands listed there are meant to be entered into a Linux command line (see ["Getting to Know the Command Line"](https://www.davidbaumgold.com/tutorials/command-line/) by David Baumgold).
 
@@ -24,7 +26,7 @@ The goal of the training process is to minimize loss (a representation of the ma
 
 Once you start the training process, you will see something like Fig. 7. From this interface, we can infer a number of characteristics.
 
-![The interface for torch-rnn](7-interface.png)
+![The interface for torch-rnn](images/7-interface.png)
 *Figure 7: The interface for torch-rnn.*
 
 **(Number of) Epoch(s):** An epoch is one full pass or cycle through the training data—i.e. your network has seen all of the samples once. The interface tells you the current epoch out of the total number of epochs (you can modify the total with the flag `--max_epochs`).
@@ -95,7 +97,7 @@ Sequence length specifies the number of steps back a network looks at (when goin
 
 Training a network may take a lot of time (hours or, more likely, days). At any point, we can interrupt or abort the training process by typing `Cntrl/Cmd + z`. This can be particularly helpful when using the Early Stopping technique (see ["Training Speed and Duration"](#heading=h.3rdcrjn)); change parameters partway through; or if you want to shut down your computer or put it in standby/sleep mode. To (re)start the training process, use the `-init_from` flag and, optionally, the `reset iteration` tag.
 
-#### [Works Cited](#citeCre)
+### [Works Cited](#citeCre)
 
 Bengio, Yoshua. "Practical Recommendations for Gradient-Based Training of Deep Architectures." *ArXiv.org.*, 16 Sept. 2012, https://arxiv.org/pdf/1206.5533.pdf
 

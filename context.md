@@ -1,13 +1,13 @@
 ## Context
 
 <img src="images/Grant-Allensq.jpg" width="30%" /><img src="images/1-layers.png" width="35%" /><img src="images/typist.jpg" width="30%"/>
-*Images: a portrait of Grant Allen (left), an interaction with a chatterbot ELIZA designed to pass the Turing Test (centre), a typist typing with a Sholes typewriter (right)*
+*Images: a portrait of Grant Allen (left), an illustration of a simple neural network's layers (centre), a typist typing with a Sholes typewriter (right)*
 
 ### [The Anatomy of Neural Networks](#anatomy)
 
 This project uses [torch-rnn](https://github.com/jcjohnson/torch-rnn), a series of modules, written for the Torch framework by Justin Johnson and based on Andrej Karpathy’s [char-rnn](https://github.com/karpathy/char-rnn), that generates text using artificial neural networks ("ANNs"). ANNs are computer systems that loosely mimic the human brain. They consist of networks of neuron-like "nodes" that are grouped into layers, with nodes from one layer connected to nodes in other layers (see Fig. 1).
 
-![input, hidden, and output layers of a neural network](images/1-layers.png)
+<img src="images/1-layers.png" width="80%">
 
 *Figure 1: Illustration of a neural network with arrows showing how information travels through it. Image made by Colin M. Burnett, care of Wikimedia Commons.*
 
@@ -27,7 +27,9 @@ Forward propagation stops with the output layer. At this point, the ANN calculat
 
 Once the training process is complete, we can ask a trained ANN to generate a novel sequence—that is, to "sample" from the network—by running in forward propagation mode with the weights it learned while training.
 
-#### [Enter torch-rnn](#enter)
+### [Enter torch-rnn](#enter)
+
+![screenshot of torch-rnn main Github page](images/torch-rnn.png)
 
 In May 2015, Andrej Karpathy published ["The Unreasonable Effectiveness of Recurrent Neural Networks"](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) and made [the accompanying code](https://github.com/karpathy/char-rnn) free and available online. Like its name suggests, char-rnn allows you to train an ANN on a corpus of your choosing and then generate novel text character by character, in two-character sets. Since then, many others have adapted Karpathy's code or method for their own projects (e.g. Ross Goodwin's work in ["Narrated Reality"](https://medium.com/artists-and-machine-intelligence/adventures-in-narrated-reality-6516ff395ba3), Lars Hiller Eidnes' [word-rnn](https://github.com/larspars/word-rnn), Aaron Ng's [Netflix synposis generator](https://medium.com/aaronn/generating-netflix-synopses-with-a-recurrent-neural-network-e8aef791fdce)).
 
@@ -39,7 +41,7 @@ More specifically for this project, torch-rnn lets me imitate Grant Allen’s �
 Sample 1	               |  Sample 2
 :-------------------------:|:-------------------------:
 ![](images/4-sample1)    ![](images/4-sample2)
-:-------------------------:|:-------------------------:
+
 Sample 3				   |    Sample 4
 :-------------------------:|:-------------------------:
 ![](images/4-sample3)    ![](images/4-sample4)
@@ -52,11 +54,11 @@ Grant Allen (1848-1899) was an author who wrote in many different genres and dis
 
 In the latter half of the nineteenth century, Allen witnessed many changes in literary production and circulation. Automation and technological innovations increased the sheer volume of print material while lowering costs. At the same time, social changes such as strong emphasis on education and the rising middle-class meant that this print material could reach far broader audiences than before. But although technological advances and decreasing costs may have made nineteenth-century books literature more accessible, they did not solve cultural debate about who counts as an author and what counts as "authentic" literature. 
 
-####[The Anxiety of Authorship](#anxiety)
+#### [The Anxiety of Authorship](#anxiety)
 
-Allen makes an interesting case study for machine learning and studies of authorship and style because, throughout his life and career, he was very self-conscious and concerned with his own authorial identity and writing personae. Not only did he write under at least three pseudonyms on several occasions ("Grant Allen"), he also went to great lengths to create a backstory for "Olive Pratt Rayner" (CITE NEWSPAPER); wrote a dedication to her fictional husband and brother(CITE TYPE-WRITER GIRL); and insisted that no one know his identity as author until after his death (CITE BROADVIEW INTRO?). Furthermore, Vanessa Warne and Colette Colligan suggest that Allen's use of a cross-gender pseudonym and other writings reflect anxieties over writing as a male author in a genre with a largely female audience.
+Allen makes an interesting case study for machine learning and studies of authorship and style because, throughout his life and career, he was very self-conscious and concerned with his own authorial identity and writing personae. Not only did he write under at least three pseudonyms on several occasions ("Grant Allen"), he also went to great lengths to create a backstory for "Olive Pratt Rayner" ("Literary Notes"); wrote a dedication to her fictional husband and brother(Allen ); and insisted that no one know his identity as author until after his death ("News in Brief"). Furthermore, Vanessa Warne and Colette Colligan suggest that Allen's use of a cross-gender pseudonym and other writings reflect anxieties over writing as a male author in a genre with a largely female audience.
 
-*The Type-writer Girl* also troubles any neat categorization of gender through multiple layers of imitation. For example, Allen's use of a cross-gendered pseudonym might expose the instability of gender roles or binaries--that is, their susceptibility to being faked--even as it can indicate a desire to follow convention (e.g. the convention of female writers writing for a female market). Perhaps more subtly, the female protagonist creates a double disguise (see [Cameron]()): Allen is writing as a woman writing (in first-person) as a female character. And, as Cameron notes, it is possible that a reader might assume Rayner was writing from personal experience, giving the work an air of authenticity (pg#). Using machine learning to imitate Allen's style may echo Allen's own gender imitations or personae in his writing.
+*The Type-writer Girl* also troubles any neat categorization of gender through multiple layers of imitation. For example, Allen's use of a cross-gendered pseudonym might expose the instability of gender roles or binaries—that is, their susceptibility to being faked—even as it can indicate a desire to follow convention (e.g. the convention of female writers writing for a female market). Perhaps more subtly, the female protagonist creates a double disguise (see Cameron): Allen is writing as a woman writing (in first-person) as a female character. And, as Cameron notes, it is possible that a reader might assume Rayner was writing from personal experience, giving the work an air of authenticity (236). Using machine learning to imitate Allen's style may echo Allen's own gender imitations or personae in his writing.
 
 *The Type-writer Girl*—written for a female audience and which Allen wrote as Rayner—thematically foregrounds issues of gender, authorship, and authenticity. Somewhat like Allen himself, the novel's protagonist, Juliet Appleton, struggles to write original, creative literature while working as a typist, mindlessly transcribing and copying the words of her male boss. In Appleton, the novel presents a figure for women's emancipation: a woman who is educated, talented, and has financial independence. Appleton's profession alludes to female labour and contributions to textual and literary production that are generally overlooked. In Allen's time, the labour of reproduction or duplication was gendered female and held a much lower status than the work of a masculine, original, and creative mind ([Keep]; [Plant]; [Wosk]). A typist or copyist worked for financial gain while a genius pursued an artistic vision; a genius creates and innovates while a hack merely imitates what has been done before.
 
@@ -69,19 +71,19 @@ Late twentieth-century anxieties that AI will replace humans ("Now even poets wi
 
 ### [Possible Future Directions](#future)
 
-Like *The Woman who Did*, much of Allen’s work deals with themes of gender and female emancipation in particular. For example, *The Type-writer Girl* features a headstrong female protagonist who is determined to support herself financially and chooses not to marry in spite of her love interest’s affections. (NOTE:  Cite The Type-writer Girl, broadview) However, Allen’s own gender politics are both controversial and contested in current scholarship. Although he wrote explicitly in support of women’s rights and independence, many scholars note that he seemed unable to reconcile this with his Darwinist emphasis on reproduction and motherhood (Allen anthology, Cameron). If we use a neural network and train it on his writing, we could produce text that Grant Allen never wrote but *theoretically could have*. As a kind of speculative exercise, (NOTE:  Cite Kari Krauss, Daniela Rosner, Samuels and McGann) we could then interpret this artificially-produced text as if it were the original. By itself or through comparative analysis with the original, this process might tell us something new about gender politics in the late nineteenth century that we might not have learned otherwise.
+Like *The Woman who Did*, much of Allen’s work deals with themes of gender and female emancipation in particular. For example, *The Type-writer Girl* features a headstrong female protagonist who is determined to support herself financially and chooses not to marry in spite of her love interest’s affections. (NOTE:  Cite The Type-writer Girl, broadview) However, Allen’s own gender politics are both controversial and contested in current scholarship. Although he wrote explicitly in support of women’s rights and independence, many scholars note that he seemed unable to reconcile this with his Darwinist emphasis on reproduction and motherhood (Allen anthology, Cameron). If we use a neural network and train it on his writing, we could produce text that Grant Allen never wrote but *theoretically could have*. As a kind of speculative exercise, (Krauss; Rosner; Samuels and McGann) we could then interpret this artificially-produced text as if it were the original. By itself or through comparative analysis with the original, this process might tell us something new about gender politics in the late nineteenth century that we might not have learned otherwise.
 
 Furthermore, we might link the Author Function's gender imitation to gender performativity. First coined by Judith Butler, performativity refers to the coerced repetition or performance of a gender ideal that is never realized as authentic, despite all attempts. (NOTE:  Gender Trouble by Judith Butler) Similarly, my project also functions as a kind of imitation without an original: it automates the performance of authorship in search of novel conceptions of gender that congeal over time and through repetition, rather than seek to uncover what Grant Allen personally "really meant." Although a full discussion of gender is outside the scope of this project, it’s worth considering how this project might productively speak to forgotten queer histories of computing.
 
 Lastly, neural networks, as a medium or methodology, are relatively opaque when compared to other kinds of programming. Although someone designs the general architecture of a model (via parameters), they do not have explicit control once the training process starts and can’t see the results until the training process has ended. Neural networks are unique in this. Where we might normally expect a program to execute a specific set of instructions to produce a deterministic output, the "output" of a neural network is the model itself—which in turn becomes a platform for generating its own outputs (Berger n.p.). Placed alongside other forms of generative writing, this project also invokes an “aesthetic of surprise” that emerges when designers confront, or concede, an absence of control. (Howe and Soderman n.p.) In this project, I tried to walk the line between surprise (what is unexpected) and coherence (what is legible). In this way, imitation exceeds rote repetition and becomes a creative endeavour in and of itself. In other words, imitation demands some measure of originality—some might even say authenticity—even as it passes as a convincing duplicate of something else.
 
-###[Works Cited](#citeCont)
+### [Works Cited](#citeCont)
 
 Adamson, Glenn. Intoduction. *The Craft Reader*. Berg, 2010.
 
 Allen, Grant. Introduction. *The British Barbarians: a Hilltop Novel*. G. P. Putnam & Sons, 1895. https://archive.org/stream/britishbarbarian00allerich#page/n13/mode/2up
 
-Allen, Grant [“Olive Pratt Rayner”]. *The Type-Writer Girl.* Introduction by Clarissa J. Suranyi. Broadview Press, 2004.
+Allen, Grant. *The Type-writer Girl.* C. Arthur Pearson, 1897. https://archive.org/stream/cihm_05084#page/n5/mode/2up
 
 Cameron, S. Brooke. “Sister of the Type: the Feminist Collective in Grant Allen’s The Type-writer Girl.” *Victorian Literature and Culture*, no. 40, 2012, pp. 229-244.
 
@@ -92,5 +94,13 @@ Goodwin, Ross. “Adventures in Narrated Reality: New forms & interfaces for wri
 Howe, Daniel C. and A. Braxton Soderman. “The Aesthetics of Generative Literature: Lessons from a Digital Writing Workshop.” *Hyperrhiz*, no. 6, Fall 2009. Edited by Dene Grigar. www.hyperrhiz.io/hyperrhiz06/essays/the-aesthetics-of-generative-literature-lessons-from-a-digital-writing-workshop.html
 
 Keep, Christopher. “The Cultural Work of the Type-Writer Girl.” *Victorian Studies*, vol. 40, no. 3, 1997, pp. 401-425.
+
+Kraus, Kari. “Conjectural Criticism: Computing Past and Future Texts.” *Digital Humanities Quarterly*, vol. 3, no. 4, 2009, n.p.
+
+"Literary Notes." *The Australasian* [Melbourne, Australia], 16 Dec. 1899, issue 1759, p. 1402.
+
+"News in Brief." *The Evening News* [Portsmouth, England], 27 Oct. 1899, issue 6981, p. 2.
+
+Samuels, Lisa and Jerome McGann. “Deformance and Interpretation.” *New Literary History*, vol. 30, no. 1, 1999, pp. 25-26.
 
 Turing, Alan. “Computing Machinery and Human Intelligence.” *Mind*, no. 59, 1950, pp.433-460, www.loebner.net/Prizef/TuringArticle.html

@@ -3,9 +3,9 @@
 
 import os
 
-sourcePath = r"/home/Tiffany/ENGL598/samples/oneString/clean3/"
+sourcePath = r"/path to folder/foldername/"
 
-with open(sourcePath + 'merged3.txt', 'w') as outfile:
+with open(sourcePath + 'merged.txt', 'w') as outfile:
     for file in os.listdir(sourcePath):
         with open(sourcePath + file) as infile:
             for line in infile:
