@@ -15,30 +15,30 @@ In practice and purpose, this project also shares characteristics with other for
 ## Table of Contents
 
 ### Context
-* [The Anatomy of Neural Networks](context.md/#anatomy)
-  * [Enter torch-rnn](context.md/#enter)
-* [Grant Allen: a Case Study](context.md/#allen)
-  * [The Anxiety of Authorship](context.md/#anxiety)
-  * [Queer Writing Machines](context.md/#queer)
-  * [Possible Future Directions](context.md/#future)
-* [Works Cited](context.md/#citeCont)
+* [The Anatomy of Neural Networks](context.md/#the-anatomy-of-neural-networks)
+  * [Enter torch-rnn](context.md/#enter-torch-rnn)
+* [Grant Allen: a Case Study](context.md/#grant-allen-a-case-study)
+  * [The Anxiety of Authorship](context.md/#the-anxiety-of-authorship)
+  * [Queer Writing Machines](context.md/#queer-writing-machines)
+  * [Possible Future Directions](context.md/#possible-future-directions)
+* [Works Cited](context.md/#works-cited)
 
 ### Composition
 * [Getting Started](composition.md/#started)
-* [Interface and Interpretation](composition.md/#interface)
-* [Optimizing Hyper-parameters](composition.md/#params)
-  * [A Model's Fit: Training vs. Validation Loss](composition.md/#fit)
-  * [Changing the Rate of Descent: Learning Decay](composition.md/#rate)
-  * [Training Speed and Duration: Max Epochs, Batch Size, and Early Stopping](composition.md/#speed)
-  * [Sequence Length](composition.md/#seq)
-  * [Stopping and Starting Training](composition.md/#stop)
-* [Works Cited](composition.md/#citeCre)
+* [Interface and Interpretation](composition.md/#interface-and-interpretation)
+* [Optimizing Hyper-parameters](composition.md/#optimizing-hyper-parameters)
+  * [A Model's Fit: Training vs. Validation Loss](composition.md/#a-models-fit-training-vs-validation-loss)
+  * [Changing the Rate of Descent: Learning Decay](composition.md/#changing-the-rate-of-descent)
+  * [Training Speed and Duration: Max Epochs, Batch Size, and Early Stopping](composition.md/#training-speed-and-duration-max-epochs-batch-size-and-early-stopping)
+  * [Sequence Length](composition.md/#sequence-length)
+  * [Stopping and Starting Training](composition.md/#stopping-and-starting-training)
+* [Works Cited](composition.md/#works-cited)
 
 ### Corpus
 
 ### Code
-* [Notes on Running the Scripts, Navigating Directories](code/README.md/#notes)
-* [The Scripts in More Detail](code/README.md/#scripts)
+* [Notes on Running the Scripts, Navigating Directories](code/README.md/#notes-on-running-the-scripts-navigating-directories)
+* [The Scripts in More Detail](code/README.md/#the-scripts-in-more-detail)
 
 ## Context
 
