@@ -1,6 +1,4 @@
-# The Author Function: Imitating Grant Allen with Queer Writing Machines
-
-## Introduction
+<center># The Author Function: Imitating Grant Allen with Queer Writing Machines</center>
 
 > “I cannot choose but wonder who each is, and why he is here. For one after another I invent a story. It may not be the true story, but at least it amuses me.” —Grant Allen, *The Type-writer Girl.*
 
@@ -14,9 +12,9 @@ In practice and purpose, this project also shares characteristics with other for
 
 [Continue to "Context"](context) or scroll down for descriptions of each section: Context, Composition, Corpus, and Code.
 
-### Table of Contents
+## Table of Contents
 
-#### Context
+### Context
 * [The Anatomy of Neural Networks](context.md/#anatomy)
   * [Enter torch-rnn](context.md/#enter)
 * [Grant Allen: a Case Study](context.md/#allen)
@@ -25,7 +23,7 @@ In practice and purpose, this project also shares characteristics with other for
   * [Possible Future Directions](context.md/#future)
 * [Works Cited](context.md/#citeCont)
 
-#### Composition
+### Composition
 * [Getting Started](composition.md/#started)
 * [Interface and Interpretation](composition.md/#interface)
 * [Optimizing Hyper-parameters](composition.md/#params)
@@ -36,37 +34,37 @@ In practice and purpose, this project also shares characteristics with other for
   * [Stopping and Starting Training](composition.md/#stop)
 * [Works Cited](composition.md/#citeCre)
 
-#### Corpus
+### Corpus
 
-#### Code
+### Code
 * [Notes on Running the Scripts, Navigating Directories](code/README.md/#notes)
 * [The Scripts in More Detail](code/README.md/#scripts)
 
-### Context
+## Context
 
 This document contextualizes and interprets the project in terms of its cultural, historical, and technological significance or implications. It gives a brief overview of machine/deep learning and discusses how this technology came to be available to non-specialists. It also explains why Grant Allen (1848-1899) makes a good case study, as well as points to possible future directions for research.
 
 <img src="images/Grant-Allensq.jpg" width="30%" /><img src="images/1-layers.png" width="35%" /><img src="images/typist.jpg" width="30%"/>
 
-### Composition
+## Composition
 
 This document provides more detailed and explicit explanations of, and instructions and tips for, machine learning with torch-rnn: a code module developed by Justin Johnson, based on work by Andrej Karpathy.
 
 ![The interface for torch-rnn](images/7-interface.png)
 
-### Corpus
+## Corpus
 
 This folder contains a collection and description of the 32 .txt files used to train the neural network.
 
 ![Image of a corpus file](images/corpus.png)
 
-### Code
+## Code
 
 This folder contains scripts that I wrote in the programming language Python to preprocess the data (e.g. deleting chapter titles, illustration tags) before feeding it into the neural network.
 
 ![Image of a Python script](images/script.png)
 
-### Works Cited
+## Works Cited
 
 Goodwin, Ross. “Adventures in Narrated Reality: New forms & interfaces for written language, enabled by machine intelligence.” *Artists and Machine Intelligence*, *Medium.com*, www.medium.com/artists-and-machine-intelligence/adventures-in-narrated-reality-6516ff395ba3
 
@@ -82,10 +80,14 @@ Samuels, Lisa and Jerome McGann. “Deformance and Interpretation.” *New Liter
 
 Sloan, Robin. "Writing with the machine." *Robinsloan.com*, n.d. https://www.robinsloan.com/notes/writing-with-the-machine/
 
-### License
+## Version
 
 Will write this later.
 
-### Acknowledgements
+## License
+
+Will write this later.
+
+## Acknowledgements
 
 Will write this later.
