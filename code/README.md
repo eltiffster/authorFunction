@@ -1,6 +1,6 @@
 ## Code
 
-![Screenshot of code](..images/script.png)
+![Screenshot of code](../images/script.png)
 
 This folder contains a number of python scripts I used to prepare the corpus for modelling. As an overview, I followed these general steps to prepare the file:
 
@@ -10,7 +10,7 @@ This folder contains a number of python scripts I used to prepare the corpus for
 4. Run ```mergeFiles.py``` to create one long file by appending all the files in oneString together, one after the other, with merged.txt as its output. You can also copy/paste the relevant code into `cleanup.py` to do this and cleanup in the same step. `merged.txt` shouldn’t have any special characters such as & or ^ in it, or the next step will fail with an encoding error.
 5. Begin the [preprocessing steps](https://github.com/jcjohnson/torch-rnn#step-1-preprocess-the-data), then train, and sample from, the neural network.
 
-#### [Notes on Running the Scripts, Navigating Directories](#notes)
+### Notes on Running the Scripts, Navigating Directories
 
 Because the scripts are written in Python, they require downloading and installing Python in order to run. The scripts were written in Python 2.7; I haven’t tested if they work with other versions. See [these instructions](https://en.wikibooks.org/wiki/A_Beginner%27s_Python_Tutorial/Installing_Python) for more on how to download and install Python.
 
@@ -28,12 +28,12 @@ To run the scripts, you will need to navigate to the scripts directory (i.e. the
 
 `cd .. + Enter` to go up one level/directory.
 
-#### [The Scripts in More Detail](#scripts)
+### The Scripts in More Detail
 
 **cleanup.py** deletes extraneous symbols/characters (e.g. |,\_) and filters out paratextual material such as chapter headings, blank/empty lines, etc.. It returns the .txt. file in one long string into the`samples/oneString` folder. You can change the name/location of the source folder (the input or `corpus/stripped` by default) or the destination folder (the output or `corpus/oneString` by default).
 
 ```
-cd authorFunction/scripts
+cd authorFunction/code
 python cleanup.py
 ```
 
@@ -42,7 +42,7 @@ python cleanup.py
 **mergeFiles.py** iterates through every file in `corpus/oneString` and writes its contents into a single file, merged.txt. Also contains the option to select (a list of) specific files.
 
 ```
-cd authorFunction/scripts
+cd authorFunction/code
 python mergeFiles.py
 ```
 

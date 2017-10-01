@@ -1,9 +1,9 @@
-## Context
+# Context
 
 <img src="images/Grant-Allensq.jpg" width="30%" /><img src="images/1-layers.png" width="35%" /><img src="images/typist.jpg" width="30%"/>
 *Images: a portrait of Grant Allen (left), an illustration of a simple neural network's layers (centre), a typist typing with a Sholes typewriter (right)*
 
-### [The Anatomy of Neural Networks](#anatomy)
+## The Anatomy of Neural Networks
 
 This project uses [torch-rnn](https://github.com/jcjohnson/torch-rnn), a series of modules, written for the Torch framework by Justin Johnson and based on Andrej Karpathy’s [char-rnn](https://github.com/karpathy/char-rnn), that generates text using artificial neural networks ("ANNs"). ANNs are computer systems that loosely mimic the human brain. They consist of networks of neuron-like "nodes" that are grouped into layers, with nodes from one layer connected to nodes in other layers (see Fig. 1).
 
@@ -27,7 +27,7 @@ Forward propagation stops with the output layer. At this point, the ANN calculat
 
 Once the training process is complete, we can ask a trained ANN to generate a novel sequence—that is, to "sample" from the network—by running in forward propagation mode with the weights it learned while training.
 
-### [Enter torch-rnn](#enter)
+## [Enter torch-rnn](#enter)
 
 ![screenshot of torch-rnn main Github page](images/torch-rnn.png)
 
@@ -48,13 +48,13 @@ Sample 3				   |    Sample 4
 
 *Fig 6: Pictures of samples at different points in the model and what they produce*
 
-### [Grant Allen: a Case Study](#allen)
+## [Grant Allen: a Case Study](#allen)
 
 Grant Allen (1848-1899) was an author who wrote in many different genres and disciplines; he wrote both fiction (e.g. short stories, novels) and non-fiction (e.g. essays, scientific articles, travel guides). In 1876, he began writing professionally and published short stories under pen names such as J. Arbuthnot Wilson and Cecil Power ("Grant Allen"). He also published *The Type-writer Girl* (1897) and *Rosalba* (1899) under a cross-gendered pseudonym, Olive Pratt Rayner ("Grant Allen"). He was an extremely productive writer, writing more than thirty works of fiction in fifteen years ("Grant Allen") with *The Woman who Did*(1895) becoming his most popular and lucrative achievement. Depicting a young woman who struggles against gender conventions, *The Woman Who Did* is generally read as sympathetic to women's rights and emancipation. It attracted as much criticism and satire as it did fame or admiration: for example, *Punch*, a popular and well-known satiric magazine, even turned "The Woman Who..." into a catchphrase (Warne and Colligan 21-22).
 
 In the latter half of the nineteenth century, Allen witnessed many changes in literary production and circulation. Automation and technological innovations increased the sheer volume of print material while lowering costs. At the same time, social changes such as strong emphasis on education and the rising middle-class meant that this print material could reach far broader audiences than before. But although technological advances and decreasing costs may have made nineteenth-century books literature more accessible, they did not solve cultural debate about who counts as an author and what counts as "authentic" literature. 
 
-#### [The Anxiety of Authorship](#anxiety)
+### The Anxiety of Authorship
 
 Allen makes an interesting case study for machine learning and studies of authorship and style because, throughout his life and career, he was very self-conscious and concerned with his own authorial identity and writing personae. Not only did he write under at least three pseudonyms on several occasions ("Grant Allen"), he also went to great lengths to create a backstory for "Olive Pratt Rayner" ("Literary Notes"); wrote a dedication to her fictional husband and brother(Allen ); and insisted that no one know his identity as author until after his death ("News in Brief"). Furthermore, Vanessa Warne and Colette Colligan suggest that Allen's use of a cross-gender pseudonym and other writings reflect anxieties over writing as a male author in a genre with a largely female audience.
 
@@ -62,14 +62,13 @@ Allen makes an interesting case study for machine learning and studies of author
 
 *The Type-writer Girl*—written for a female audience and which Allen wrote as Rayner—thematically foregrounds issues of gender, authorship, and authenticity. Somewhat like Allen himself, the novel's protagonist, Juliet Appleton, struggles to write original, creative literature while working as a typist, mindlessly transcribing and copying the words of her male boss. In Appleton, the novel presents a figure for women's emancipation: a woman who is educated, talented, and has financial independence. Appleton's profession alludes to female labour and contributions to textual and literary production that are generally overlooked. In Allen's time, the labour of reproduction or duplication was gendered female and held a much lower status than the work of a masculine, original, and creative mind ([Keep]; [Plant]; [Wosk]). A typist or copyist worked for financial gain while a genius pursued an artistic vision; a genius creates and innovates while a hack merely imitates what has been done before.
 
-
-#### [Queer Writing Machines](#queer)
+### Queer Writing Machines
 
 We could link Allen's imitation to the imitation games of early AI from the 1950s on or, more explicitly, the concept of machines covincingly imitating humans—he most famous example of the latter being "the Turing test." Many people know the Turing test as an imitation game in which a human interlocutor converses with two participants: one is a human while the other is an AI imitating a human. If the AI is able to convince the interlocutor, the AI is said to pass the Turing test. It is perhaps fitting, then, to imitate Allen’s writing using a neural network that (albeit very loosely) imitates the workings of a human brain. Furthermore, what often escapes notice is that Turing's original test, as he described it, is explicitly about gender imitation rather than the imitation of a (supposedly) universal human essence. In fact, for an AI to pass Turing's original imitation game, it would have to convincingly imitate a man imitating a woman (n.p.). Like Allen's imitation, Turing's imitation game is couched in the imitation of gender specifically, suggesting that intelligence, whether human or artificial, cannot exist outside of or divorced from cultural concerns such as gender.
 
 Late twentieth-century anxieties that AI will replace humans ("Now even poets will be out of a job") might strangely echo nineteenth-century anxieties over the decline of handcraft or reactions against automation and mechanical reproduction (e.g. Ludditism, the Arts and Craft Movement). However, then as now, new or mass-market technologies did not straightorwardly or completely replace craft so much as it morphs or develops in response to them (Adamson iv). Similarly, as Ross Goodwin argues, machine learning and other forms of generative art do not replace humans; instead, they offer more, not less, affordances, spaces, and techniques for composition (n.p.).
 
-### [Possible Future Directions](#future)
+## [Possible Future Directions](#future)
 
 Like *The Woman who Did*, much of Allen’s work deals with themes of gender and female emancipation in particular. For example, *The Type-writer Girl* features a headstrong female protagonist who is determined to support herself financially and chooses not to marry in spite of her love interest’s affections. (NOTE:  Cite The Type-writer Girl, broadview) However, Allen’s own gender politics are both controversial and contested in current scholarship. Although he wrote explicitly in support of women’s rights and independence, many scholars note that he seemed unable to reconcile this with his Darwinist emphasis on reproduction and motherhood (Allen anthology, Cameron). If we use a neural network and train it on his writing, we could produce text that Grant Allen never wrote but *theoretically could have*. As a kind of speculative exercise, (Krauss; Rosner; Samuels and McGann) we could then interpret this artificially-produced text as if it were the original. By itself or through comparative analysis with the original, this process might tell us something new about gender politics in the late nineteenth century that we might not have learned otherwise.
 
@@ -77,7 +76,7 @@ Furthermore, we might link the Author Function's gender imitation to gender perf
 
 Lastly, neural networks, as a medium or methodology, are relatively opaque when compared to other kinds of programming. Although someone designs the general architecture of a model (via parameters), they do not have explicit control once the training process starts and can’t see the results until the training process has ended. Neural networks are unique in this. Where we might normally expect a program to execute a specific set of instructions to produce a deterministic output, the "output" of a neural network is the model itself—which in turn becomes a platform for generating its own outputs (Berger n.p.). Placed alongside other forms of generative writing, this project also invokes an “aesthetic of surprise” that emerges when designers confront, or concede, an absence of control. (Howe and Soderman n.p.) In this project, I tried to walk the line between surprise (what is unexpected) and coherence (what is legible). In this way, imitation exceeds rote repetition and becomes a creative endeavour in and of itself. In other words, imitation demands some measure of originality—some might even say authenticity—even as it passes as a convincing duplicate of something else.
 
-### [Works Cited](#citeCont)
+## [Works Cited](#citeCont)
 
 Adamson, Glenn. Intoduction. *The Craft Reader*. Berg, 2010.
 

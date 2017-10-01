@@ -1,8 +1,8 @@
-## Composition
+# Composition
 
 ![Screenshot of torch-rnn Github page](images/torch-rnn.png)
 
-### Getting Started
+## Getting Started
 
 Running torch-rnn requires a number of dependencies that are all listed on the [torch-rnn page](https://github.com/jcjohnson/torch-rnn). You will need to install [Python](https://www.python.org/) and [Lua](https://www.lua.org/manual/5.3/readme.html) before installing [Torch](http://torch.ch/). Note that the commands listed there are meant to be entered into a Linux command line (see ["Getting to Know the Command Line"](https://www.davidbaumgold.com/tutorials/command-line/) by David Baumgold).
 
@@ -10,7 +10,7 @@ If you have Windows 10, I highly recommend using Bash on Ubuntu on Windows so th
 
 Installing and using a GPU (Graphics Processing Unit) is optional and you have to check if your computer meets the requirements first. A GPU would allow you to train your models much faster, although there are some options for increasing performance with a CPU only (see "Optimizing Hyper-parameters").
 
-### [Interface and Interpreting Results](#interface)
+## Interface and Interpreting Results
 
 Modelling and using a neural network consists of [three steps](https://github.com/jcjohnson/torch-rnn).
 
@@ -41,7 +41,7 @@ Once you start the training process, you will see something like Fig. 7. From th
 
 **Validation Loss:** This number represents how well the model predicts data that was previously set aside before training (i.e. it is data that the model has never seen before). The model prints validation loss for the entire network every thousand iterations and may take a while to process.
 
-### [Optimizing Hyper-parameters](#params)
+## Optimizing Hyper-parameters
 
 Although torch-rnn may make ANNs more accessible to non-specialists, optimizing the model (to produce legible text) can take a lot of time and trial-and-error. Neural networks like this one are "the ultimate ‘black boxes’ (Burger). Apart from defining the general architecture of a network and perhaps initially seeding it with a random numbers, the user has no other role than to feed it input and watch it train and await the output" (Burger).
 
@@ -49,7 +49,7 @@ However, there are ways to adjust the architecture of the network by using hyper
 
 It can be helpful to train on smaller bits of information first (but at least 1 MB’s worth of data) to get a feel for how the parameters work before training larger models, which obviously take more time. It is also helpful in the beginning to abort models that aren’t working out well (`Ctrl/Cmd + z`) instead of letting the model run; that way you can test a different set of parameters more quickly.
 
-#### [A Model’s "Fit": Training Loss vs. Validation Loss](#fit)
+### A Model’s "Fit": Training Loss vs. Validation Loss
 
 As I said before, the goal of training is to minimize both types of loss, which should decrease over time as the model works its way through the data. If we were to plot the loss through time, it would initially decrease quickly and then gradually slow down as it approaches minimal loss. For more on general information on gradient descent, see [Tejani](https://alykhantejani.github.io/a-brief-introduction-to-gradient-descent/). See “Gradient Clipping” for more on how to adjust the gradient itself.
 
@@ -71,7 +71,7 @@ There are four possible scenarios:
 
 As an overall strategy, Karpathy recommends deliberately overfitting a model and then using different dropout values to get a better fit ([Karpathy n.p.](https://github.com/karpathy/char-rnn)). I also find it helpful to keep track of the two loss values by copy-pasting them into a spreadsheet or a blank document. That way, it’s easier to see the overall trend at a glance even when there are smaller spikes or bumps.
 
-#### [Changing the Rate of Descent: Learning Decay](#rate)
+### Changing the Rate of Descent: Learning Decay
 
 As previously stated, the loss value can be plotted along a decreasing gradient. Torch-rnn allows you to adjust the gradient using the flags `-lr_decay_every`, `-lr_decay_factor,` and `-grad_clip` (see [torch-rnn flags](https://github.com/jcjohnson/torch-rnn/blob/master/doc/flags.md#training) for definitions and details). A common way to smooth the gradient is gradient clipping, which normalizes values that stray out of an accepted range (Grosse). If your loss fluctuates a lot, you can increase/adjust gradient clipping to decrease the bouncing.
 
@@ -81,7 +81,7 @@ As previously stated, the loss value can be plotted along a decreasing gradient.
 
 *Figure 9: Graph of different learning gradients and how loss changes over time. Image captured from a video by Udacity:(https://www.udacity.com/course/deep-learning--ud730).*
 
-#### [Training Speed and Duration: Max Epochs, Batch Size, and Early Stopping](#speed)
+### Training Speed and Duration: Max Epochs, Batch Size, and Early Stopping
 
 `-max_epochs` controls how many rounds or passes the network makes at the data. Larger values lengthen the training process. One common practice is to deliberately overfit the network but stop the training process just before the loss begins to increase again (i.e. stop the network before it becomes less accurate). We could do this by lowering `-max_epochs` to cut off the gradient at a particular place, or stop the training process manually.
 
@@ -89,15 +89,15 @@ As previously stated, the loss value can be plotted along a decreasing gradient.
 
 Early stopping refers to the practice of stopping or cutting off the training process before the network begins to overfit and lose accuracy (Bengio). If we chart the validation loss over time while overfitting, it would create a parobola-type shape; loss falls to a certain point and then begins to rise again as the network becomes too specific, losing its ability to generalize features to new data. With early stopping, we stop or cut off the training process at the sweet spot, where loss was the lowest, and sample from the corresponding checkpoint.
 
-#### [Sequence Length](#seq)
+### Sequence Length
 
 Sequence length specifies the number of steps back a network looks at (when going through backpropagation). At larger `-seq_length` values, the network will be able to find broader patterns across a string of characters where the current step might depend on a step much further back. Consider, for example, trying to predict the last word in "the clouds are in the *sky*" vs. “I grew up in France . . . I speak perfect *French*” ([Olah n.p.](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)). Increasing `seq_length` will also increase the number of total iterations.
 
-#### [Stopping and Starting Training](#stop)
+### Stopping and Starting Training
 
 Training a network may take a lot of time (hours or, more likely, days). At any point, we can interrupt or abort the training process by typing `Cntrl/Cmd + z`. This can be particularly helpful when using the Early Stopping technique (see ["Training Speed and Duration"](#heading=h.3rdcrjn)); change parameters partway through; or if you want to shut down your computer or put it in standby/sleep mode. To (re)start the training process, use the `-init_from` flag and, optionally, the `reset iteration` tag.
 
-### [Works Cited](#citeCre)
+## Works Cited
 
 Bengio, Yoshua. "Practical Recommendations for Gradient-Based Training of Deep Architectures." *ArXiv.org.*, 16 Sept. 2012, https://arxiv.org/pdf/1206.5533.pdf
 
