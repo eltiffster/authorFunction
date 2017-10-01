@@ -1,4 +1,4 @@
-<center># The Author Function: Imitating Grant Allen with Queer Writing Machines</center>
+# The Author Function: Imitating Grant Allen with Queer Writing Machines
 
 > “I cannot choose but wonder who each is, and why he is here. For one after another I invent a story. It may not be the true story, but at least it amuses me.” —Grant Allen, *The Type-writer Girl.*
 
