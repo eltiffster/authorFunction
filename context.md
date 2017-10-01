@@ -27,7 +27,7 @@ Forward propagation stops with the output layer. At this point, the ANN calculat
 
 Once the training process is complete, we can ask a trained ANN to generate a novel sequence—that is, to "sample" from the network—by running in forward propagation mode with the weights it learned while training.
 
-## [Enter torch-rnn](#enter)
+## Enter torch-rnn
 
 ![screenshot of torch-rnn main Github page](images/torch-rnn.png)
 
@@ -48,7 +48,7 @@ Sample 3				   |    Sample 4
 
 *Fig 6: Pictures of samples at different points in the model and what they produce*
 
-## [Grant Allen: a Case Study](#allen)
+## Grant Allen: a Case Study
 
 Grant Allen (1848-1899) was an author who wrote in many different genres and disciplines; he wrote both fiction (e.g. short stories, novels) and non-fiction (e.g. essays, scientific articles, travel guides). In 1876, he began writing professionally and published short stories under pen names such as J. Arbuthnot Wilson and Cecil Power ("Grant Allen"). He also published *The Type-writer Girl* (1897) and *Rosalba* (1899) under a cross-gendered pseudonym, Olive Pratt Rayner ("Grant Allen"). He was an extremely productive writer, writing more than thirty works of fiction in fifteen years ("Grant Allen") with *The Woman who Did*(1895) becoming his most popular and lucrative achievement. Depicting a young woman who struggles against gender conventions, *The Woman Who Did* is generally read as sympathetic to women's rights and emancipation. It attracted as much criticism and satire as it did fame or admiration: for example, *Punch*, a popular and well-known satiric magazine, even turned "The Woman Who..." into a catchphrase (Warne and Colligan 21-22).
 
@@ -68,7 +68,7 @@ We could link Allen's imitation to the imitation games of early AI from the 1950
 
 Late twentieth-century anxieties that AI will replace humans ("Now even poets will be out of a job") might strangely echo nineteenth-century anxieties over the decline of handcraft or reactions against automation and mechanical reproduction (e.g. Ludditism, the Arts and Craft Movement). However, then as now, new or mass-market technologies did not straightorwardly or completely replace craft so much as it morphs or develops in response to them (Adamson iv). Similarly, as Ross Goodwin argues, machine learning and other forms of generative art do not replace humans; instead, they offer more, not less, affordances, spaces, and techniques for composition (n.p.).
 
-## [Possible Future Directions](#future)
+## Possible Future Directions
 
 Like *The Woman who Did*, much of Allen’s work deals with themes of gender and female emancipation in particular. For example, *The Type-writer Girl* features a headstrong female protagonist who is determined to support herself financially and chooses not to marry in spite of her love interest’s affections. (NOTE:  Cite The Type-writer Girl, broadview) However, Allen’s own gender politics are both controversial and contested in current scholarship. Although he wrote explicitly in support of women’s rights and independence, many scholars note that he seemed unable to reconcile this with his Darwinist emphasis on reproduction and motherhood (Allen anthology, Cameron). If we use a neural network and train it on his writing, we could produce text that Grant Allen never wrote but *theoretically could have*. As a kind of speculative exercise, (Krauss; Rosner; Samuels and McGann) we could then interpret this artificially-produced text as if it were the original. By itself or through comparative analysis with the original, this process might tell us something new about gender politics in the late nineteenth century that we might not have learned otherwise.
 
@@ -76,7 +76,7 @@ Furthermore, we might link the Author Function's gender imitation to gender perf
 
 Lastly, neural networks, as a medium or methodology, are relatively opaque when compared to other kinds of programming. Although someone designs the general architecture of a model (via parameters), they do not have explicit control once the training process starts and can’t see the results until the training process has ended. Neural networks are unique in this. Where we might normally expect a program to execute a specific set of instructions to produce a deterministic output, the "output" of a neural network is the model itself—which in turn becomes a platform for generating its own outputs (Berger n.p.). Placed alongside other forms of generative writing, this project also invokes an “aesthetic of surprise” that emerges when designers confront, or concede, an absence of control. (Howe and Soderman n.p.) In this project, I tried to walk the line between surprise (what is unexpected) and coherence (what is legible). In this way, imitation exceeds rote repetition and becomes a creative endeavour in and of itself. In other words, imitation demands some measure of originality—some might even say authenticity—even as it passes as a convincing duplicate of something else.
 
-## [Works Cited](#citeCont)
+## Works Cited
 
 Adamson, Glenn. Intoduction. *The Craft Reader*. Berg, 2010.
 
