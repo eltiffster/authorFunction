@@ -53,7 +53,7 @@ This is version 1.0 of The Author Function.
 
 ### Corpus
 
-A [collection and description](#corpus) of the 32 .txt files used to train the neural network.
+A [collection and description](corpus) of the 32 .txt files used to train the neural network.
 
 ### Works Cited
 
