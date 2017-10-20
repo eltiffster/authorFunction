@@ -1,8 +1,9 @@
 ## Code
 
 ![Screenshot of code](../images/script.png)
+*Image: a Python script I wrote to preprocess text files.*
 
-This folder contains a number of python scripts I used to prepare the corpus for modelling. As an overview, I followed these general steps to prepare the file:
+This folder contains a number of python scripts I used to prepare the corpus for modelling, as well as some samples (examples.txt). As an overview, I followed these general steps to prepare the file:
 
 1. Download the file into two locations: samples/raw and samples/stripped. The raw folder contains backup copies of the files (as they were when downloaded). (See ["Corpus"](../corpus) for more.)
 2. In the stripped folder, open each file and remove all paratextual material—i.e. copyright license, advertisements, table of contents, etc. that appear at the start or end of the file.
