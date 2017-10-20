@@ -2,20 +2,23 @@
 
 > “I cannot choose but wonder who each is, and why he is here. For one after another I invent a story. It may not be the true story, but at least it amuses me.” — Grant Allen, *The Type-writer Girl.*
 
-This repository contains files for "The Author Function," a project that uses machine learning to computationally imitate the style of Grant Allen (1848-1899), a nineteenth-century author who wrote in a variety of genres and topics, and under various pseudonyms (e.g.“Olive Pratt Rayner”). To imitate Allen's writing style, I harnessed the power of artificial neural networks (ANNs), which are computer systems modelled loosely on the structure and behaviour of the human brain. In particular, I used the code module [torch-rnn](https://github.com/jcjohnson/torch-rnn), written by Justin Johnson, to "train" an ANN on Allen's writings.  Unlike more conventional programming, ANNs do not use explicit or hand-coded instructions to produce a determined output. Instead, the output of this process can be said to be the ANN or model itself (see ["Anatomy"](#the-anatomy-of-neural-networks) for more). After training, I then sample or call on the network to generate novel strings of text based on the training data's unique stylistic features (as learned by the ANN).
+This repository contains files for "The Author Function," a project that uses machine learning to computationally imitate the style of Grant Allen (1848-1899), a nineteenth-century author who wrote in a variety of genres and under various pseudonyms. To imitate Allen's writing style, I harnessed the power of artificial neural networks (ANNs), which are computer systems modelled loosely on the structure and behaviour of the human brain. In particular, I used the code module [torch-rnn](https://github.com/jcjohnson/torch-rnn), written by Justin Johnson, to "train" an ANN on Allen's writing.  Unlike more conventional programming, ANNs do not use explicit or hand-coded instructions to produce a determined output. Instead, the output of this process can be said to be the ANN or model itself (see ["Anatomy"](#the-anatomy-of-neural-networks) for more)([Burger](http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html)). After training, I then sample or call on the network to generate novel strings of text based on the training data's unique stylistic features (as learned by the ANN).
 
-In practice and purpose, this project resembles certain forms or practices of electronic literature—or, more specifically, generative or "computational creative" writing such as Twitter bots ([Goodwin](https://medium.com/artists-and-machine-intelligence/adventures-in-narrated-reality-6516ff395ba3); [Kazemi](http://tinysubversions.com/); [Parrish](http://www.decontextualize.com); [Sample](https://medium.com/@samplereality/a-protest-bot-is-a-bot-so-specific-you-cant-mistake-it-for-bullshit-90fe10b7fbaa); [Sloan](https://www.robinsloan.com/notes/writing-with-the-machine/)). These creative practices all disarticulate written text or language into component parts before rearranging and recombining them in novel formations. What seems, in one sense, like reanimating the author after literary theory and criticism have proclaimed their death (Barthes) might, in another, seem to make the author obsolete. Although I doubt robots will replace human poets anytime soon, I believe that computational creative writing does not detract from but *enriches* creative writing writ broadly: it presents questions, challenges, and possibilities that we have not or may not have otherwise considered.
+In practice and purpose, this project resembles certain forms or practices of electronic literature—or, more specifically, generative or "computational creative" writing such as Twitter bots ([Goodwin](https://medium.com/artists-and-machine-intelligence/adventures-in-narrated-reality-6516ff395ba3); [Kazemi](http://tinysubversions.com/); [Parrish](http://www.decontextualize.com); [Sample](https://medium.com/@samplereality/a-protest-bot-is-a-bot-so-specific-you-cant-mistake-it-for-bullshit-90fe10b7fbaa); [Sloan](https://www.robinsloan.com/notes/writing-with-the-machine/)). These creative practices all disarticulate written text or language into component parts before rearranging and recombining them in novel formations (see Fig. 1 for an example). What seems, in one sense, like reanimating the author after literary theory and criticism have proclaimed their death (Barthes) might, in another, seem to make the author obsolete. Although I doubt robots will replace human poets anytime soon, I believe that computational creative writing does not detract from but *enriches* creative writing writ broadly: it presents questions, challenges, and possibilities that we have not or may not have otherwise considered.
 
-This project takes its name and inspiration from Foucault's concept of the author, not as a straightforward reference to a single person, but as the effect of material and cultural influences that combine and congeal into what we consider authorship to be or mean. Foucault refers to these effects as like a mathematical function and a process that serves a political utility. I take this function to a literal extreme by transforming Grant Allen's style as a unique, identifying feature of the author, into an executable computer function—a procedure used to express, calculate, or manipulate values.
+![sample of text written by the machine](images/4-sample4.png)
 
-I chose Grant Allen because he makes an interesting case study for performative authorship. In recent years, contemporary scholars have revisited Allen's life and work—in particular, how the clash between Allen's political (e.g. in women's rights) and artistic aspirations and economic pressures greatly influenced not only what he wrote, but how he positioned or presented himself in relation to it (Greenslade and Rodgers; Morton; Warne and Colligan). As I later discuss (see ["Context"](#grant-allen-a-case-study)), Allen wrote in a cultural moment and milieu that makes him a good case study for mechanical reproduction and its relation to (gendered) authorship, both then and now. Current debates or fears about artificial intelligence (AI) replacing human poets parallel nineteenth-century anxieties over who or what counts as a legitimate author or as authentic literature in an era of mass production and proliferating print culture. However, for my purposes, I am less interested in whether or not a computer *can or cannot* convincingly pass as Grant Allen than I am interested in what, specifically, the AI says that Allen (hypothetically-speaking) could have but did not.
+*Figure 1: Sample text written by the ANN.*
 
-"The Author Function" is a modest first step in a larger project of exploring the possibilities of machine learning and imitation in/for cultural or literary research. It draws from work by Kari Krauss and Lisa Samuels and Jerome McGann on subjunctive criticism and systematic alterations of text. In their research, these scholars emphasize the potential of speculation: what could we learn about our object of inquiry (e.g. a work of literature) if we broke it down, remade it, and compared or interpreted it alongside, or even as if it were, the original?
-Articulated in Victorian-era terms, this project is like conducting a séance with a computer, rather than an Ouija board. Framed as a methodological experiment, "The Author Function" asks whether a kind of computer-assisted forgery can tell us anything of academic, literary, or cultural value—and, if so, what might it say?
+This project takes its name and inspiration from Foucault's concept of the author as not as a straightforward reference to a single person, but the effect of material and cultural influences that combine and congeal into what we consider authorship to be or mean. Foucault refers to these effects as like a mathematical function and a process that serves a political utility. I take this function to a literal extreme by transforming Grant Allen's style as a unique, identifying feature of the author, into an executable computer function—a procedure used to express, calculate, or manipulate values.
+
+I chose Grant Allen because he makes an interesting case study for performative authorship. In recent years, contemporary scholars have revisited Allen's life and work. Many scholars discuss the clash between Allen's political (e.g. in women's rights) and artistic aspirations, and how market pressures greatly influenced not only what he wrote, but how he positioned or presented himself in relation to it (Greenslade and Rodgers; Morton; Warne and Colligan). As I later discuss (see ["Context"](#grant-allen-a-case-study)), Allen wrote in a cultural moment and milieu that makes him a good case study for mechanical reproduction and its relation to gendered authorship, both then and now. Current debates or fears about artificial intelligence (AI) replacing human poets parallel nineteenth-century anxieties over who or what counts as a legitimate author or as authentic literature in an era of mass production and proliferating print culture. However, for my purposes, I am less interested in whether or not a computer *can or cannot* convincingly pass as Grant Allen than I am interested in what, specifically, the AI says that Allen (hypothetically-speaking) could have but did not.
+
+Although I don't have very concrete findings, "The Author Function" is a modest first step in a larger project of exploring the possibilities of machine learning and imitation in/for cultural or literary research. It draws from work by Kari Krauss and Lisa Samuels and Jerome McGann on subjunctive criticism and systematic alterations of text. In their research, these scholars emphasize the potential of speculation: what could we learn about our object of inquiry (in this case, literature) if we broke down, remade, and compared or interpreted it alongside—or—even as if it were, the original? Articulated in Victorian-era terms, this project is like conducting a séance with a computer, rather than an Ouija board. Framed as a methodological experiment, "The Author Function" asks whether a kind of computer-assisted forgery can tell us anything of academic, literary, or cultural value—and, if so, what might it say?
 
 ## Acknowledgements
 
-For the past three years, I have studied, worked, and lived on the traditional territories of the Songhees, Esquimalt and WSÁNEĆ peoples, whose historical relationships and stewardship of the land continues to this day. Without this land, my growth as both a scholar and a person would not have been possible. I am also grateful to Dr. Jentery Sayers, who has mentored and supported me from the very first days of my Master's. I couldn't imagine my graduate program or career without the formative experiences of working with the MLab and all the fruitful conversations that have emerged from it. Thanks to Dr. Mary Elizabeth Leighton for her support, especially in the early stages of my research and writing process, and for pulling me out of difficult spots when needed. And lastly, a very heartfelt thank you to all the friends and fellow scholars who have helped me through a very rough year. I could not have done it without you.
+First, I acknowledge that I created this project on the traditional territories of the Songhees, Esquimalt, and WSÁNEĆ peoples, whose historical relationships and stewardship of the land continues to this day. My growth as a scholar and a person would not have been possible without the land on which I have studied, worked, and lived for the past three years. I am also grateful to Dr. Jentery Sayers, who has mentored and supported me from the very first days of my Master's. I couldn't imagine my graduate career without the formative experiences of working with the MLab and all the fruitful conversations that have emerged from it. Thanks to Dr. Mary Elizabeth Leighton for her support, especially in the early stages of my research and writing process, and for pulling me out of difficult spots when needed. And lastly, a very heartfelt thank you to all the cherished friends and fellow scholars who have helped me through a very rough year. I could not have done it without you.
 
 ## Version
 
@@ -23,7 +26,7 @@ This is version 1.0 of The Author Function.
 
 ## License
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 ## Table of Contents
 
@@ -37,10 +40,10 @@ This is version 1.0 of The Author Function.
 
 ### Composition
 * [Getting Started](#getting-started)
-* [Interface and Interpretation](#interface-and-interpretation)
+* [Interface and Interpretation](#interface-and-interpretating-results)
 * [Optimizing Hyper-parameters](#optimizing-hyper-parameters)
   * [A Model's Fit: Training vs. Validation Loss](#a-models-fit-training-vs-validation-loss)
-  * [Changing the Rate of Descent: Learning Decay](#changing-the-rate-of-descent)
+  * [Changing the Rate of Descent: Learning Decay](#changing-the-rate-of-descent-learning-decay)
   * [Training Speed and Duration: Max Epochs, Batch Size, and Early Stopping](#training-speed-and-duration-max-epochs-batch-size-and-early-stopping)
   * [Sequence Length](#sequence-length)
   * [Stopping and Starting Training](#stopping-and-starting-training)
@@ -49,15 +52,14 @@ This is version 1.0 of The Author Function.
 ### Code
 * [Notes on Running the Scripts, Navigating Directories](#notes-on-running-the-scripts-navigating-directories)
 * [The Scripts in More Detail](#the-scripts-in-more-detail)
-* [Samples of Generated Text](#samples-of-generated-text)
 
 ### Corpus
 
-A [collection and description](corpus) of the 32 .txt files used to train the neural network.
+A [collection and description](corpus) of the 32 .txt files used to train the neural network. [Click here](#corpus-1) for more description and details.
 
 ### Works Cited
 
-[Sources](#works-cited) and further reading.
+[Sources](#works-cited-1) and further reading.
 
 ## Context
 
@@ -66,11 +68,11 @@ A [collection and description](corpus) of the 32 .txt files used to train the ne
 
 ### The Anatomy of Neural Networks
 
-This project uses [torch-rnn](https://github.com/jcjohnson/torch-rnn), a series of modules, written for the Torch framework by Justin Johnson and based on Andrej Karpathy’s [char-rnn](https://github.com/karpathy/char-rnn), that generates text using artificial neural networks ("ANNs"). ANNs are computer systems that loosely mimic the human brain. They consist of networks of neuron-like "nodes" that are grouped into layers, with nodes from one layer connected to nodes in other layers (see Fig. 1).
+This project uses [torch-rnn](https://github.com/jcjohnson/torch-rnn), a series of modules, written for the Torch framework by Justin Johnson and based on Andrej Karpathy’s [char-rnn](https://github.com/karpathy/char-rnn), that generates text using artificial neural networks ("ANNs"). ANNs are computer systems that loosely mimic the human brain. They consist of networks of neuron-like "nodes" that are grouped into layers, with nodes from one layer connected to nodes in other layers (see Fig. 2).
 
-<img src="images/1-layers.png" width="60%">
+<img src="images/2-layers.png" width="60%">
 
-*Figure 1: Illustration of a neural network with arrows showing how information travels through it. Image made by Colin M. Burnett, care of Wikimedia Commons.*
+*Figure 2: Illustration of a neural network with arrows showing how information travels through it. Image made by Colin M. Burnett, care of Wikimedia Commons.*
 
 Where we might typically expect a program or algorithm to execute a list of instructions sequentially or line-by-line, the nodes in an ANN fire simultaneously (in parallel) across the connections between nodes and/or between layers. Fig. 1 illustrates how this firing sequence, called “forward propagation,” works over time, making its way from the input layer, through intervening layers, until it reaches the final, output layer. The more numerous or dense the hidden layers, the larger, more complex, and more powerful the ANN.
 
@@ -107,7 +109,7 @@ Sample 3				   |    Sample 4
 :-------------------------:|:-------------------------:
 ![](images/4-sample3.png)  | ![](images/4-sample4.png)
 
-*Fig 6: Pictures of samples at different points in the model and what they produce*
+*Fig 6: Pictures of samples written by the model. Click on the images to enlarge.*
 
 ### Grant Allen: a Case Study
 
@@ -127,6 +129,10 @@ Throughout his life and career, Allen was very self-conscious and concerned with
 
 Allen's imitation game brings to mind early imitation games of AI (ca. 1950s)—games that test a machine's ability to convincingly imitate human beings. The most famous of these is "the Turing test," in which a human interlocutor converses with two participants: one is a human while the other is an AI imitating a human. If the AI is able to convince the interlocutor, the AI is said to pass the Turing test. It is perhaps fitting, then, to imitate Allen’s writing using a neural network that (albeit very loosely) imitates the workings of a human brain. Furthermore, what is often ignored is that Turing's original test as he described it is explicitly about gender imitation rather than the imitation of a supposedly universal human essence. In fact, for an AI to pass Turing's original imitation game, it would have to convincingly imitate a man imitating a woman (n.p.). Both Allen and Turing's imitation games are couched in the imitation of gender specifically, suggesting that intelligence, whether human or artificial, cannot exist outside of or divorced from cultural concerns such as gender.
 
+![eliza](images/eliza.png)
+
+*Figure : an image of a conversation with Eliza, one of the first "chatbots" (machines meant for simulating human conversation) ever made. Image care of [Anna Szymcak](https://blog.infermedica.com/introduction-to-chatbots-in-healthcare/)*
+
 Moreover, late twentieth-century anxieties that AI will replace human authors might strangely echo nineteenth-century anxieties over the decline of handcraft or reactions against automation and mechanical reproduction (e.g. Ludditism or the Arts and Craft Movement). However, then as now, new or mass-market technologies did not straightorwardly or completely replace craft so much as it morphs or develops in response to them (Adamson 44). Similarly, as Ross Goodwin argues, machine learning and other forms of generative art do not replace humans; instead, they offer more, not less, affordances, spaces, and techniques for composition (n.p.). In both cases, the former attitude deemphasizes human agency and labour in designing, making, operating, and maintaining the machine. Furthermore, in terms of aesthetics, the human or handmade is not necessarily better or more desirable than, or even neatly separable from, the machine-made. For example, eighteenth-century artisans might well have sought the very regularity and efficiency in their work that later became disparaged and denigrated as the aesthetics of mechanical reproduction (Adamson 44). 
 
 As biographer Richard Le Gallienne writes of Allen,
@@ -135,7 +141,7 @@ As biographer Richard Le Gallienne writes of Allen,
 
 This spectacle of productivity, as Leah Price notes, "Like the semantic ambiguity of the term 'type-writer' — person or thing? — Allen's 'merely mechanical' writing reduces him to a metonymic extension of his machine" (138). Price also writes that Allen's role in demonstrating the capabilities of a typewriter, of which Allen himself was one of the first early adopters, might align him with other notable demonstrators: women that typewriter companies relied on to advertise and market their products.
 
-![Lillian Sholes with typewriter](images/7-lillianSholes.jpeg)
+![Lillian Sholes with typewriter](images/lillianSholes.jpeg)
 
 *Fig. 7: Lillian Sholes, the daughter of inventor Christopher Latham Sholes, with one of her father's experimental typewriters (ca. 1872). Image information from Wosk (p. 24), image care of the University of Wisconsin Digital Collections Center.*
 
@@ -147,13 +153,14 @@ Like *The Woman who Did*, much of Allen’s work deals with themes of gender and
 
 Furthermore, we might link the Author Function's gender imitation to gender performativity. First coined by Judith Butler, performativity refers to the coerced repetition or performance of a gender ideal that is never realized as authentic, despite all attempts. Similarly, my project also functions as a kind of imitation without an original: it automates the performance of authorship in search of novel conceptions of gender that congeal over time and through repetition, rather than seek to uncover what Grant Allen personally "really meant." Although a full discussion of gender is outside the scope of this project, it’s worth considering how this project might productively speak to forgotten queer histories of computing.
 
-Lastly, neural networks, as a medium or methodology, are relatively opaque when compared to other kinds of programming. Although we may design the general architecture of a model (via parameters), we do not have explicit control once the training process starts and can’t see the results until the training process has ended. Neural networks are unique in this. Where we might normally expect a program to execute a specific set of instructions to produce a deterministic output, the "output" of a neural network is the model itself—which in turn becomes a platform for generating its own outputs (Berger n.p.). Placed alongside other forms of generative writing, this project also invokes an “aesthetic of surprise” that emerges when designers confront, or concede, an absence of control. (Howe and Soderman n.p.) In this project, I tried to walk the line between surprise (what is unexpected) and coherence (what is legible). In this way, imitation exceeds rote repetition and becomes a creative endeavour in and of itself. In other words, imitation demands some measure of originality—some might even say authenticity—even as it passes as a convincing duplicate of something else.
+Lastly, neural networks, as a medium or methodology, are relatively opaque when compared to other kinds of programming. Although we may design the general architecture of a model (via parameters), we do not have explicit control once the training process starts and can’t see the results until the training process has ended. Neural networks are unique in this. Where we might normally expect a program to execute a specific set of instructions to produce a deterministic output, the "output" of a neural network is the model itself—which in turn becomes a platform for generating its own outputs ([Berger n.p.](http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html)). Placed alongside other forms of generative writing, this project also invokes an “aesthetic of surprise” that emerges when designers confront, or concede, an absence of control. ([Howe and Soderman n.p.](http://hyperrhiz.io/hyperrhiz06/essays/the-aesthetics-of-generative-literature-lessons-from-a-digital-writing-workshop.html)) In this project, I tried to walk the line between surprise (what is unexpected) and coherence (what is legible). In this way, imitation exceeds rote repetition and becomes a creative endeavour in and of itself. In other words, imitation demands some measure of originality—some might even say authenticity—even as it passes as a convincing duplicate of something else.
 
 ## Composition
 
 I ran the following software on my personal laptop, which has a 64-bit Windows operating system and 8.00 GB of RAM (Random Access Memory). To simulate a Linux operating system, I used Bash on Ubuntu on Windows.
 
 ![Screenshot of torch-rnn Github page](images/torch-rnn.png)
+*Figure : a screenshot of the torch-rnn Github page.*
 
 ### Getting Started
 
@@ -175,7 +182,7 @@ Modelling and using a neural network consists of [three steps](https://github.co
 
 During all three steps, you can configure what are called [flags](https://github.com/jcjohnson/torch-rnn/blob/master/doc/flags.md) or hyper-parameters: settings you can use to tweak or optimize your model (see ["Optimizing Hyper-parameters"](#optimizing-hyper-parameters)). You can get drastically different models by changing its hyper-parameters.
 
-The goal of the training process is to minimize the loss value (a representation of the margin of error)—in particular validation loss, which represents the error or distance between the model's prediction and actual data. When sampling a checkpoint (see below), it is usually best to sample the checkpoint with the lowest validation loss (and hence your most accurate model).
+The goal of the training process is to minimize the loss value (a representation of the margin of error)—in particular validation loss, which represents how a model performs on unseen data. When sampling a checkpoint (see below), it is usually best to sample the checkpoint with the lowest validation loss (and hence your most accurate model).
 
 Once you start the training process, you will see something like Fig. 8. From this interface, we can infer a number of characteristics.
 
@@ -196,7 +203,7 @@ Once you start the training process, you will see something like Fig. 8. From th
 
 ### Optimizing Hyper-parameters
 
-Although torch-rnn may make ANNs more accessible to non-specialists, optimizing the model to produce legible text can take a lot of time and trial-and-error. Neural networks like this one are "the ultimate ‘black boxes’. Apart from defining the general architecture of a network and perhaps initially seeding it with...random numbers, the user has no other role than to feed it input and watch it train and await the output" (Burger).
+Although torch-rnn may make ANNs more accessible to non-specialists, optimizing the model to produce legible text can take a lot of time and trial-and-error. Neural networks like this one are "the ultimate ‘black boxes’. Apart from defining the general architecture of a network and perhaps initially seeding it with...random numbers, the user has no other role than to feed it input and watch it train and await the output" ([Burger n.p.](http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html)).
 
 However, there are ways to adjust the architecture of the network by using hyper-parameters ("parameters") in order to drive the loss down and produce a better model. We can use this [list of flags](https://github.com/jcjohnson/torch-rnn/blob/master/doc/flags.md) to modify the parameters. In the following, I discuss a number of tips for the training and sampling process that I’ve compiled and synthesized from different sources.
 
@@ -254,7 +261,7 @@ Training a network may take a lot of time (hours or, more likely, days). At any 
 
 The resulting samples of the model are still fairly non-sensical and not likely to be mistaken for a human author any time soon. However, this is not necessarily a bad thing: for most writers of generative or computational creative writing, absurdity can be a defining feature. As with most if not all generative literature, it takes a lot of samples to produce something meaningful. As Goodwin notes, we can feed the network lines from the training corpus to push it to write more legibly, as well as adjust the temperature to produce either more random or more regular samples [(n.p.)](https://medium.com/artists-and-machine-intelligence/adventures-in-narrated-reality-6516ff395ba3). For example, with a low temperature, a model tends to yield samples that repeat words and/or syntactic structures with little punctuation. By contrast, a high temperature yields more variable but less sensical samples with relatively more punctuation (see Fig. 9). As Goodwin puts it, temperature represents how much creative risk a model takes (n.p.).
 
-![Low temperature sample](images/tempSamp1) ![High temperature sample](images/tempSamp2)
+![Low temperature sample](images/tempSampL) ![High temperature sample](images/tempSampH)
 
 Put differently, sampling is a balancing act between variance—what we might consider more surprising or creative—and coherence—what is recognizable as the logical or grammatical structure of English. Occasionally, the model will also produce non-words such as "cleeds" or "tade," although I'm not clear what exactly causes this or whether or not it can be influenced through training or preprocessing.
 
@@ -262,7 +269,7 @@ In future, the model would likely produce much better results if I fed it more d
 
 ## Code
 
-![Screenshot of code](../images/script.png)
+![Screenshot of code](images/script.png)
 
 This folder contains a number of python scripts I used to prepare the corpus for modelling. As an overview, I followed these general steps to prepare the file:
 
@@ -313,10 +320,11 @@ python mergeFiles.py
 ## Corpus
 
 ![Image of a corpus file](images/corpus.png)
+*Image of a file in the corpus.*
 
 This corpus consists of 31 .txt files downloaded from [this Project Gutenberg page](http://onlinebooks.library.upenn.edu/webbin/gutbook/author?name=Allen%2C%20Grant%2C%201848-1899) compiled by [the Online Books Page and John Mark Ockerbloom](http://onlinebooks.library.upenn.edu/). I chose the Gutenberg files for their availability and accurate transcriptions. I chose only single-author books and did not include travel guides.
 
-The corpus is organized into three different folders: ["raw"](raw) (the state they were when downloaded), [“stripped”](stripped)(devoid of paratextual material), and [“oneString”](onestring) (rewritten into one long sequence of characters without line breaks or carriage returns). See [the Code folder](../code) for more information on how the files and folders relate to each other or their context of use.
+The corpus is organized into three different folders: ["raw"](corpus/raw) (the state they were when downloaded), [“stripped”](corpus/stripped)(devoid of paratextual material), and [“oneString”](corpus/onestring) (rewritten into one long sequence of characters without line breaks or carriage returns). See ["Code"](#code-1) for more information on how the files and folders relate to each other or their context of use.
 
 ## Works Cited
 
@@ -335,6 +343,8 @@ Bengio, Yoshua. "Practical Recommendations for Gradient-Based Training of Deep A
 Brownlee, Jason. "Overfitting and Underfitting With Machine Learning Algorithms." *Machine Learning Mastery*, 21 Mar. 2016, https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/
 
 Burger, Josef. "A Basic Introduction To Neural Networks." 4 Nov. 2010, http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html
+
+Butler, Judith. *Gender Trouble: Feminisim and the Subversion of Identity.* Routledge, 1990.
 
 Cameron, S. Brooke. “Sister of the Type: the Feminist Collective in Grant Allen’s The Type-writer Girl.” *Victorian Literature and Culture*, no. 40, 2012, pp. 229-244.
 
@@ -377,6 +387,8 @@ Perchelt, Lutz. "Early stopping—but when?" *Neural Networks: Tricks of the Tra
 Plant, Sadie. *Zeroes and Ones: Digital Women and the New Technoculture*. Fourth Estate, 1997.
 
 Price, Leah. "Grant Allen's Impersonal Secretaries." *Grant Allen: Literature and Cultural Politics at the* Fin de Siècle. Greenslade and Rodgers, pp.
+
+Rosner, Daniela K. *Design as Inquiry*. n.d. http://www.danielarosner.com/
 
 Sample, Mark. “A protest bot is a bot so specific you can’t mistake it for bullshit: A Call for Bots of Conviction.” *Medium.com*, 30 May 2014. https://medium.com/@samplereality/a-protest-bot-is-a-bot-so-specific-you-cant-mistake-it-for-bullshit-90fe10b7fbaa
 
