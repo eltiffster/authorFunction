@@ -2,7 +2,7 @@
 
 "I cannot choose but wonder who each is, and why he is here. For one after another I invent a story. It may not be the true story, but at least it amuses me."
 
-— Grant Allen, *The Type-writer Girl*
+— Grant Allen, [*The Type-writer Girl*](https://archive.org/details/cihm_05084)
 
 This repository contains files for "The Author Function": a project that uses machine learning to imitate the style of Grant Allen (1848-1899), a nineteenth-century author who wrote in a variety of genres and under various pseudonyms. To imitate Allen's writing style, I used artificial neural networks (ANNs), which are modelled loosely on the structure and behaviour of human brains. Specifically, I used the code module [torch-rnn](https://github.com/jcjohnson/torch-rnn), written by Justin Johnson, to "train" an ANN on Allen's writing. Unlike more conventional programming, ANNs do not use explicit or hand-coded instructions to produce a determined output. Instead, the output is the ANN or model itself (see ["Anatomy"](#the-anatomy-of-neural-networks) for more) ([Burger 2010](http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html)). After training, I "sample" the network to generate novel strings of text based on the training data's unique stylistic features (as learned by the ANN).
 
@@ -54,7 +54,7 @@ This is version 1.1 of The Author Function.
   * [The Scripts in More Detail](#the-scripts-in-more-detail)
 * [Interface and Interpretation](#interface-and-interpretation)
 * [Optimizing Hyper-parameters](#optimizing-hyper-parameters)
-  * [A Model's Fit: Training vs. Validation Loss](#a-models-fit-training-vs-validation-loss)
+  * [A Model's Fit: Training vs. Validation Loss](#a-models-fit-training-loss-vs-validation-loss)
   * [Changing the Rate of Descent: Learning Decay](#changing-the-rate-of-descent-learning-decay)
   * [Training Speed and Duration: Max Epochs, Batch Size, and Early Stopping](#training-speed-and-duration-max-epochs-batch-size-and-early-stopping)
   * [Sequence Length](#sequence-length)
@@ -82,6 +82,7 @@ This project uses [torch-rnn](https://github.com/jcjohnson/torch-rnn), a series 
 <img src="images/1-layers.png" width="60%">
 
 *Figure 1: Illustration of a neural network with arrows showing how information travels through it. Image by Colin M. Burnett, care of Wikimedia Commons.*
+
 Whereas we might typically expect a program or algorithm to execute a list of instructions sequentially or line by line, the nodes in an ANN fire simultaneously (in parallel) across the connections between nodes and/or between layers. Figure 1 illustrates how this firing sequence, called "forward propagation," works over time, making its way from the input layer, through intervening layers, until it reaches the final, output layer. The more numerous or dense the hidden layers, the larger, more complex, and more powerful the ANN.
 
 Before forward propagation begins, the ANN sets aside some "validation data" (more on this later) and assigns a weight to each connection or synapse. (For its initial pass, the network uses a random value.) As input values move through the layers, the ANN multiplies them by the synaptic weights and then calculates the sum total activation (see Figure 2).
@@ -89,6 +90,7 @@ Before forward propagation begins, the ANN sets aside some "validation data" (mo
 ![animation of forward propagation](images/2-forwardProp.gif)
 
 *Figure 2: Animated GIF of forward propagation. Note the weight of each connection represented by W. Animation sampled from an animated GIF by Wil C.*
+
 Forward propagation stops with the output layer. At this point, the ANN calculates the degree of error and then, in a process called "backpropagation," goes backwards through the layers and adjusts the weight of each connection to produce better results the next time. The network learns as it cycles through the data, propagating forwards and backwards and adjusting the weights accordingly. It improves its guesses by reducing or minimizing the error (the distance between its guess and the correct value) over time. With torch-rnn and other recurrent neural networks, the ANN learns from not only its previous guess and context (what comes before and after the target) but also a history of previous guesses and their contexts. This learning process is called “training” a neural network (see Figure 3).
 
 ![image alt text](images/3-fullProp.gif)
@@ -99,13 +101,11 @@ Once the training process is complete, we can ask a trained ANN to generate a no
 
 #### Enter torch-rnn
 
-![screenshot of torch-rnn main Github page](images/torch-rnn.png)
-
 In May 2015, Andrej Karpathy published[ "The Unreasonable Effectiveness of Recurrent Neural Networks"](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) and [the accompanying code](https://github.com/karpathy/char-rnn) online. Like its name suggests, char-rnn allows you to train an ANN on a corpus of your choosing and then generate novel text character by character, in two-character sets. Many others have adapted Karpathy's code or method for their own projects (e.g. Ross Goodwin's ["Narrated Reality"](https://medium.com/artists-and-machine-intelligence/adventures-in-narrated-reality-6516ff395ba3) project, Lars Hiller Eidnes'[ word-rnn](https://github.com/larspars/word-rnn), and Aaron Ng's[ Netflix synopsis generator](https://medium.com/aaronn/generating-netflix-synopses-with-a-recurrent-neural-network-e8aef791fdce)).
 
 One such project is torch-rnn, a more efficient version of char-rnn that I adopted for "The Author Function." Like char-rnn, torch-rnn allows us to create, train, and sample ANNs on personal computers without advanced knowledge or formal training in Computer Science or statistics. Instead, we can adjust a list of settings, called flags or “hyper-parameters” (see[ “Optimizing Hyper-parameters”](https://github.com/jcjohnson/torch-rnn/blob/master/doc/flags.md)), to be used by the ANN when preprocessing, training, or sampling from the network.
 
-Simply put, torch-rnn lets us imitate Grant Allen’s style (as calculated by the ANN) by training it on selected works available at[ Project Gutenberg](http://onlinebooks.library.upenn.edu/webbin/gutbook/author?name=Allen%2C%20Grant%2C%201848-1899) (see the "Corpus" folder for more). I then sample from the model to produce novel text (see Figure 4)—text that Allen did not write but could have (for more samples, see the Code subfolder).
+Simply put, torch-rnn lets us imitate Grant Allen’s style (as calculated by the ANN) by training it on selected works available at [Project Gutenberg](http://onlinebooks.library.upenn.edu/webbin/gutbook/author?name=Allen%2C%20Grant%2C%201848-1899) (see the "Corpus" folder for more). I then sample from the model to produce novel text (see Figure 4)—text that Allen did not write but could have (for more samples, see the Code subfolder).
 
 *Figure 4: Pictures of samples written by the model, which has been fed the same two starting sentences in each case.*
 
@@ -127,7 +127,7 @@ Simply put, torch-rnn lets us imitate Grant Allen’s style (as calculated by th
 
 ### Grant Allen
 
-Grant Allen (1848-1899) wrote short stories, novels, essays, scientific articles, and travel guides. He also published short stories under pen names such as J. Arbuthnot Wilson and Cecil Power, along with two novels, *The Type-writer Girl* (1897) and *Rosalba* (1899), under a cross-gendered pseudonym, Olive Pratt Rayner (Cotton and Van Arsdel 2004, n.p.). An extremely productive writer, he wrote more than thirty works of fiction in fifteen years. His most popular and lucrative achievement, *The Woman Who Did* depicts a young woman who struggles against gender conventions and refuses to marry based on her feminist objections to the institution of marriage. Although it could be read as sympathetic to women’s rights and emancipation, it attracted as much criticism and satire as it did popularity or economic success. For example, *Punch*, a popular and well-known satirical magazine, turned "The Woman Who..." into a catchphrase (Warne and Colligan 2005, 21-22).
+Grant Allen (1848-1899) wrote short stories, novels, essays, scientific articles, and travel guides. He also published short stories under pen names such as J. Arbuthnot Wilson and Cecil Power, along with two novels, *The Type-writer Girl* (1897) and *Rosalba* (1899), under a cross-gendered pseudonym, Olive Pratt Rayner (Cotton and Van Arsdel 2004, n.p.). An extremely productive writer, he wrote more than thirty works of fiction in fifteen years (n.p.). His most popular and lucrative achievement, *The Woman Who Did* depicts a young woman who struggles against gender conventions and refuses to marry based on her feminist objections to the institution of marriage. Although it could be read as sympathetic to women’s rights and emancipation, it attracted as much criticism and satire as it did popularity or economic success. For example, *Punch*, a popular and well-known satirical magazine, turned "The Woman Who..." into a catchphrase (Warne and Colligan 2005, 21-22).
 
 In the latter half of the nineteenth century, Allen witnessed many social changes in literary production and circulation. Automation and technological innovations increased the sheer volume of print material while lowering costs. At the same time, cultural changes, such as strong emphasis on education and the rising middle class, meant that print material could reach far broader audiences than before. Although technological advances and decreasing costs made nineteenth-century books more accessible, they did not resolve cultural debates about who counts as an author and what counts as literature.
 
@@ -137,7 +137,7 @@ In the latter half of the nineteenth century, Allen witnessed many social change
 Throughout his life and career, Allen was very self-conscious about and concerned with his own authorial identity and the performance thereof. Not only did he write under at least three pseudonyms on several occasions (Cotton and Van Arsdel 2004, n.p.), he also goes to great lengths to create a backstory for "Olive Pratt Rayner" ("Literary Notes"); dedicates "her" novels to a fictional husband and brother (Allen 7); and insists that no one know his identity as author until after his death ("News in Brief"). Vanessa Warne and Colette Colligan suggest that Allen's use of a cross-gender pseudonym and other writings reflect anxieties over writing as a male author in a genre with a mostly female audience.
 
 ![a backstory for Olive Pratt Rayner](images/5-literaryNotes.png)
-*Figure 5: An posthumous note in* the Australasian *about "Olive Pratt Rayner."*
+*Figure 5: An posthumous note in* The Australasian *about "Olive Pratt Rayner."*
 
 Allen’s cross-gendered pseudonym suggests that an author’s gender, as read or interpreted by their audience, is susceptible to being faked. In the context of performance and performativity, Allen’s cross-genderism recalls Butler’s reading of drag, which "plays upon the distinction between the anatomy of the performer and the gender that is being performed" to expose the instability of gender as a natural or essential characteristic (1999, 175). Allen’s pseudonym might well raise the same point, even if, in other respects, his politics seem problematic. For example, although Allen wrote explicitly in support of women’s rights and independence, many scholars note that he seemed unable to reconcile this support with his Darwinist emphasis on reproduction and motherhood (Atchison 2005; Cameron 2012).
 
@@ -251,7 +251,7 @@ python mergeFiles.py
 
 The goal of the training process is to minimize the loss value (a representation of the margin of error) and in particular validation loss, which represents how well a model predicts a sequence that was not included in the training data. When sampling(see below), you should probably use the checkpoint with the lowest validation loss since you want "a model that accurately predicts unknown character sequences, not just those it’s already seen" ([Goodwin n.p.](https://medium.com/artists-and-machine-intelligence/adventures-in-narrated-reality-6516ff395ba3)).
 
-Once you start the training process, you will see something like Figure 9. 
+Once you start the training process, you will see something like Figure 9 (below). 
 
 ![image alt text](images/9-interface.png)
 
@@ -291,7 +291,7 @@ There are four possible scenarios:
 
 1. If validation loss is consistently very similar or (almost equal) to training loss, your network may be **underfitting**: that is, your model is not predicting the training or validation data very well (see[ Brownlee](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/) 2016 for more). To fix it, increase `-rnn_size` or `-num_layers` or even `-seq_length` (Karpathy 2016 n.p.).
 
-2. If training loss is consistently* much lower* than validation loss, the model is **overfitting**, meaning your model is learning "too well" and starting to memorize sequences instead of predicting them ([Brownlee](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/) 2016, n.p.). Overfitting actually makes the model’s prediction less accurate by introducing errors into your data (Brownlee). To fix it, you can decrease the model size (using `-rnn_size` or `-num_layers`), increase dropout (-dropout), or stop the model early (press `Ctrl/Cmd + Z` in the command line to abort commands). The latter is known as "early stopping" ([Bengio](https://arxiv.org/pdf/1206.5533.pdf) 2012;[ Perchelt](http://page.mi.fu-berlin.de/prechelt/Biblio/stop_tricks1997.pdf) 1997).
+2. If training loss is consistently *much lower* than validation loss, the model is **overfitting**, meaning your model is learning "too well" and starting to memorize sequences instead of predicting them ([Brownlee](https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/) 2016, n.p.). Overfitting actually makes the model’s prediction less accurate by introducing errors into your data (Brownlee). To fix it, you can decrease the model size (using `-rnn_size` or `-num_layers`), increase dropout (-dropout), or stop the model early (press `Ctrl/Cmd + Z` in the command line to abort commands). The latter is known as "early stopping" ([Bengio](https://arxiv.org/pdf/1206.5533.pdf) 2012;[ Perchelt](http://page.mi.fu-berlin.de/prechelt/Biblio/stop_tricks1997.pdf) 1997).
 
 3. If validation loss is consistently slightly higher than your training loss, then your model has a **good fit**.
 
@@ -301,7 +301,7 @@ As an overall strategy, Karpathy recommends deliberately overfitting a model and
 
 #### Changing the Rate of Descent: Learning Decay
 
-As previously stated, the loss value can be plotted along a decreasing gradient. Torch-rnn allows you to adjust the gradient using the flags `-lr_decay_every`, `-lr_decay_factor`, and `-grad_clip` (see[torch-rnn flags](https://github.com/jcjohnson/torch-rnn/blob/master/doc/flags.md#training) for definitions and details). A common way to smooth the gradient is gradient clipping, which normalizes values that stray out of an accepted range (Grosse). If your loss fluctuates a lot, you can increase/adjust gradient clipping to decrease the bouncing.
+As previously stated, the loss value can be plotted along a decreasing gradient. Torch-rnn allows you to adjust the gradient using the flags `-lr_decay_every`, `-lr_decay_factor`, and `-grad_clip` (see [torch-rnn flags](https://github.com/jcjohnson/torch-rnn/blob/master/doc/flags.md#training) for definitions and details). A common way to smooth the gradient is gradient clipping, which normalizes values that stray out of an accepted range (Grosse). If your loss fluctuates a lot, you can increase/adjust gradient clipping to decrease the bouncing.
 
 `-lr_decay_every` and `-lr_decay_factor` affect the shape of the gradient. Increasing these numbers will make the gradient steeper while decreasing them will do the opposite. In practice, it is best to strike a balance between the two. If the curve is too steep, then the loss will plateau and not decrease as much as it could have if the curve were more gradual; however, if the curve is too gradual or shallow, then the model will take a lot of time to train (see Figure 11) ([Udacity](https://www.udacity.com/course/deep-learning--ud730) n.d., n.p.).
 
@@ -336,18 +336,18 @@ You can also adjust the "temperature" to use while sampling. Temperature influen
 
 This corpus consists of 31 .txt files downloaded from[ this Project Gutenberg page](http://onlinebooks.library.upenn.edu/webbin/gutbook/author?name=Allen%2C%20Grant%2C%201848-1899) compiled by[ the Online Books Page and John Mark Ockerbloom](http://onlinebooks.library.upenn.edu/). I chose the Gutenberg files for their availability and accurate transcriptions. I chose only single-author books and did not include Allen’s travel guides.
 
-The corpus is organized into three different folders: "raw" (the state they were when downloaded), "stripped" (devoid of paratextual material), and “oneString” (rewritten into one long sequence of characters without line breaks or carriage returns). See "Code" for more information on how the files and folders relate to each other or their context of use.
+The corpus is organized into three different folders: "raw" (the state they were when downloaded), "stripped" (devoid of paratextual material), and “oneString” (rewritten into one long sequence of characters without line breaks or carriage returns). See ["Code"](code) for more information on how the files and folders relate to each other or their context of use.
 
 ## Conclusions
 
 ### Findings
 
-
 The resulting samples of the model are still fairly nonsensical and unlikely to be mistaken for a human author anytime soon. However, this is not necessarily a flaw or failure; absurdity is for many writers a defining feature of generative or computational creative work. As with most, if not all, generative literature, a significant number of samples is required to produce something meaningful.
 
 *Figure 12: A comparison of two samples: one produced with a low temperature (bottom) and one with a high temperature (top).*
 
-![Low temperature sample](images/12-tempSampL) ![High temperature sample](images/12-tempSampH)
+![Low temperature sample](images/12-tempSampL.png)
+![High temperature sample](images/12-tempSampH.png)
 
 Put differently, sampling is a balancing act between variance—what we might consider more surprising or creative—and coherence—what we recognize as the logical or grammatical structure of English. Occasionally, the model will also produce non-words such as "cleeds" or "tade," although I am not clear what exactly causes this result or whether it can be influenced through training or preprocessing. I find these non-words interesting because they suggest that the model can produce novel "words" rather than be restricted to a pre-defined dictionary.
 
