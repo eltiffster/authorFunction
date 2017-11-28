@@ -6,7 +6,7 @@
 
 This folder contains a number of Python scripts I used to prepare the corpus for modelling. As an overview, I followed these general steps to prepare the file:
 
-1. Download the file into two locations: `samples/raw` and `samples/stripped`. The raw folder contains backup copies of the files (as they were when downloaded). (See ["Corpus"](#corpus) for more.)
+1. Download the file into two locations: `samples/raw` and `samples/stripped`. The raw folder contains backup copies of the files (as they were when downloaded). (See ["Corpus"](../README.md#corpus) for more.)
 
 2. In the `stripped` folder, open each file and remove all paratextual material—e.g.  copyright license, advertisements, and table of contents—that appears at the start or end of the file.
 
