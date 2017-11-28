@@ -4,7 +4,7 @@
 
 — Grant Allen, *The Type-writer Girl*
 
-This repository contains files for "The Author Function": a project that uses machine learning to imitate the style of Grant Allen (1848-1899), a nineteenth-century author who wrote in a variety of genres and under various pseudonyms. To imitate Allen's writing style, I used artificial neural networks (ANNs), which are modelled loosely on the structure and behaviour of human brains. Specifically, I used the code module[torch-rnn](https://github.com/jcjohnson/torch-rnn), written by Justin Johnson, to "train" an ANN on Allen's writing. Unlike more conventional programming, ANNs do not use explicit or hand-coded instructions to produce a determined output. Instead, the output is the ANN or model itself (see "Anatomy" for more) ([Burger 2010](http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html)). After training, I "sample" the network to generate novel strings of text based on the training data's unique stylistic features (as learned by the ANN).
+This repository contains files for "The Author Function": a project that uses machine learning to imitate the style of Grant Allen (1848-1899), a nineteenth-century author who wrote in a variety of genres and under various pseudonyms. To imitate Allen's writing style, I used artificial neural networks (ANNs), which are modelled loosely on the structure and behaviour of human brains. Specifically, I used the code module [torch-rnn](https://github.com/jcjohnson/torch-rnn), written by Justin Johnson, to "train" an ANN on Allen's writing. Unlike more conventional programming, ANNs do not use explicit or hand-coded instructions to produce a determined output. Instead, the output is the ANN or model itself (see ["Anatomy"](#the-anatomy-of-neural-networks) for more) ([Burger 2010](http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html)). After training, I "sample" the network to generate novel strings of text based on the training data's unique stylistic features (as learned by the ANN).
 
 This project takes its name and inspiration from [Foucault's concept](http://www.english.upenn.edu/~cavitch/pdf-library/Foucault_Author.pdf) of the author as not a single person, but rather the effect of material and cultural influences that combine and congeal into what we consider authorship to be. Foucault refers to these effects as mathematical functions and processes that serve a political utility. I take this function to an extreme by transforming Grant Allen's style into an executable computer function—a procedure used to express, calculate, and manipulate values.
 
@@ -24,7 +24,7 @@ Allen’s assertion above is noteworthy for two reasons. First, he discriminates
 
 Allen’s gender imitation prefigures later imitation games with artificial intelligence (AI), such as the Turing test first described by Alan Turing in 1950 (n.p.). Both point to the potentials and perils of disguising or performing gender that in turn prove the elasticity of gender and sexuality categories (Foster 2005, 112-114; Halberstam 1991). This attempt to queer artificial intelligence parallels practices and methods of "queer computing," which refuses impulses towards progress (e.g. product innovation) or hyperproductivity (e.g. [the “quantified self” movement](http://www.economist.com/node/21548493)) ([Blas 2012](http://www.zachblas.info/works/queer-technologies/); Gaboury 2018). Queer computing privileges multiple forms and “failures” over a single, stable ideal (Gaboury 2018, 487). It also embraces indeterminacy rather than positivism (Haber 2016, 151). In these respects, “The Author Function” operates as a queer writing machine: by extrapolating and creating even more text(s), it releases possibilities of meaning rather than seeks to prove exactly “what Allen *really* meant.” Furthermore, it renders visible the underlying logics and values of categories (e.g. gender and sexuality) to critique rather than enforce them.
 
-"The Author Function" is a modest first step in a larger project of exploring the possibilities of machine learning and imitation in/for cultural and literary research. It draws from work by Kari Kraus on subjunctive practice and Lisa Samuels and Jerome McGann on systematic alterations of texts. In their research, these scholars emphasize the potential of speculation: what could we learn about our object of inquiry (in this case, literature) if we broke down, remade, and compared or interpreted it either alongside or as if it were the original? Articulated in Victorian terms, this project is like conducting a séance with a computer instead of a Ouija board. The computer mediates between human and machine, between the dead and the living. If, as Stephen Greenblatt suggests, literary study begins with "the desire to speak with the dead" (1988, 1), then “The Author Function” begins by impelling the dead to speak. This project is not only an experiment in literary imitation; it is also a work of imagination, forged with and through literary and linguistic codes. Ultimately, “The Author Function” asks what happens if we reanimate an author with a queer machine—and what might this machine say?
+"The Author Function" is a modest first step in a larger project of exploring the possibilities of machine learning and imitation in/for cultural and literary research. It draws from work by [Kari Kraus](http://www.digitalhumanities.org/dhq/vol/3/4/000069/000069.html) on subjunctive practice and [Lisa Samuels and Jerome McGann](https://search.proquest.com/docview/1297362478?pq-origsite=gscholar) on systematic alterations of texts. In their research, these scholars emphasize the potential of speculation: what could we learn about our object of inquiry (in this case, literature) if we broke down, remade, and compared or interpreted it either alongside or as if it were the original? Articulated in Victorian terms, this project is like conducting a séance with a computer instead of a Ouija board. The computer mediates between human and machine, between the dead and the living. If, as Stephen Greenblatt suggests, literary study begins with "the desire to speak with the dead" (1988, 1), then “The Author Function” begins by impelling the dead to speak. This project is not only an experiment in literary imitation; it is also a work of imagination, forged with and through literary and linguistic codes. Ultimately, “The Author Function” asks what happens if we reanimate an author with a queer machine—and what might this machine say?
 
 ## Acknowledgements
 
@@ -50,9 +50,9 @@ This is version 1.1 of The Author Function.
 ### Composition
 * [Getting Started](#getting-started)
 * [Python Code](#python-code)
-  * [Notes on Running the Scripts, Navigating Directories](#notes-on-running-the-scripts-navigating-directories)
+  * [Running the Scripts and Navigating Directories](#running-the-scripts-and-navigating-directories)
   * [The Scripts in More Detail](#the-scripts-in-more-detail)
-* [Interface and Interpretation](#interface-and-interpretating-results)
+* [Interface and Interpretation](#interface-and-interpretation)
 * [Optimizing Hyper-parameters](#optimizing-hyper-parameters)
   * [A Model's Fit: Training vs. Validation Loss](#a-models-fit-training-vs-validation-loss)
   * [Changing the Rate of Descent: Learning Decay](#changing-the-rate-of-descent-learning-decay)
@@ -77,7 +77,7 @@ This is version 1.1 of The Author Function.
 
 ### The Anatomy of Neural Networks
 
-This project uses[torch-rnn](https://github.com/jcjohnson/torch-rnn), a series of modules written for the Torch framework by Justin Johnson and based on Andrej Karpathy’s[char-rnn](https://github.com/karpathy/char-rnn) that generates text using artificial neural networks ("ANNs"). ANNs, which are loosely inspired by biological neural networks, consist of nodes that are grouped into layers, with nodes from one layer connected to other layers (see Figure 1).
+This project uses [torch-rnn](https://github.com/jcjohnson/torch-rnn), a series of modules written for the Torch framework by Justin Johnson and based on Andrej Karpathy’s [char-rnn](https://github.com/karpathy/char-rnn) that generates text using artificial neural networks ("ANNs"). ANNs, which are loosely inspired by biological neural networks, consist of nodes that are grouped into layers, with nodes from one layer connected to other layers (see Figure 1).
 
 <img src="images/1-layers.png" width="60%">
 
@@ -225,12 +225,14 @@ ls // list all  files in current directory
 cd .. // go up one level/directory
 ```
 
-#### The Scripts in Further Detail
+#### The Scripts in More Detail
 
 `cleanup.py` deletes extraneous symbols/characters (e.g. &#124;,\_) and filters out paratextual material such as chapter headings and blank/empty lines. It returns the .txt file in one long string to the samples/oneString folder. You can change the name/location of the source folder (the input or corpus/stripped by default) or the destination folder (the output or `corpus/oneString` by default).
 
-```cd authorFunction/code
-python cleanup.py```
+```
+cd authorFunction/code
+python cleanup.py
+```
 
 `keepLines.py` does the same thing as above but preserves paragraph breaks and spacing. (More specifically, it stitches the lines back together after splitting them.)
 
