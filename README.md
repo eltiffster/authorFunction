@@ -1,8 +1,6 @@
 # The Author Function: Imitating Grant Allen with Queer Writing Machines
 
-"I cannot choose but wonder who each is, and why he is here. For one after another I invent a story. It may not be the true story, but at least it amuses me."
-
-— Grant Allen, [*The Type-writer Girl*](https://archive.org/details/cihm_05084)
+"I cannot choose but wonder who each is, and why he is here. For one after another I invent a story. It may not be the true story, but at least it amuses me." — Grant Allen, [*The Type-writer Girl*](https://archive.org/details/cihm_05084)
 
 This repository contains files for "The Author Function": a project that uses machine learning to imitate the style of Grant Allen (1848-1899), a nineteenth-century author who wrote in a variety of genres and under various pseudonyms. To imitate Allen's writing style, I used artificial neural networks (ANNs), which are modelled loosely on the structure and behaviour of human brains. Specifically, I used the code module [torch-rnn](https://github.com/jcjohnson/torch-rnn), written by Justin Johnson, to "train" an ANN on Allen's writing. Unlike more conventional programming, ANNs do not use explicit or hand-coded instructions to produce a determined output. Instead, the output is the ANN or model itself (see ["Anatomy"](#the-anatomy-of-neural-networks) for more) ([Burger 2010](http://pages.cs.wisc.edu/~bolo/shipyard/neural/local.html)). After training, I "sample" the network to generate novel strings of text based on the training data's unique stylistic features (as learned by the ANN).
 
