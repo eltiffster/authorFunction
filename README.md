@@ -68,7 +68,7 @@ This is version 1.1 of The Author Function.
 
 ### Works Cited
 
-[Sources and further reading](#works-cited-1).
+[Sources and further reading](#works-cited-1)
 
 ## Context
 
